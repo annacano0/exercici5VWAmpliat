@@ -10,7 +10,7 @@ fun main(){
     val kilometresCotxe=llegirDouble(0, messageError)
 
     //pregunta l'estat dels pneumatics
-    println("Introdueixi quants kilometres tenen els pneumatics")
+    println("Introdueixi quants kilometres tenen els pneumatics (Ex: 0)")
     val estatPneumatics=llegirLong(0,messageError)
 
     //calcula el preu inicial segons model
