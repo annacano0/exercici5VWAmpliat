@@ -8,6 +8,7 @@ import java.util.*
 
 
 */
+val scanner=Scanner(System.`in`)
 fun llegirInt(pMin:Int,pMax:Int, pMessError:String):Int{
     val scanner= Scanner(System.`in`)
     var inputCorrecte=true
@@ -16,12 +17,15 @@ fun llegirInt(pMin:Int,pMax:Int, pMessError:String):Int{
         if (scanner.hasNextInt()){
             inputCorrecte=true
             inputUsuari=scanner.nextInt()
-            if (inputUsuari<=pMin||inputUsuari>=pMax) inputCorrecte=false
+            if (inputUsuari<pMin||inputUsuari>pMax) {
+                println(pMessError)
+                inputCorrecte=false
+            }
         }else{
             println(pMessError)
             inputCorrecte=false
         }
-        scanner.next()
+        scanner.nextLine()
     }while(!inputCorrecte)
     return inputUsuari
 }
@@ -38,26 +42,30 @@ fun llegirLong(pMin:Int,pMessError:String):Long{
         }else{
             println(pMessError)
             inputCorrecte=false
+            scanner.nextLine()
         }
-        scanner.next()
+        scanner.nextLine()
     }while(!inputCorrecte)
     return inputUsuari
 }
 
 fun llegirDouble(pMin:Int,pMessError:String):Double{
     val scanner= Scanner(System.`in`)
-    var inputCorrecte:Boolean
+    var inputCorrecte:Boolean=true
     var inputUsuari:Double=100.00
     do {
         if (scanner.hasNextDouble()){
             inputCorrecte=true
             inputUsuari=scanner.nextDouble()
-            if (inputUsuari<=pMin) inputCorrecte=false
+            if (inputUsuari<pMin){
+                inputCorrecte=false
+                println(pMessError)
+            }
         }else{
+            scanner.nextLine()
             println(pMessError)
             inputCorrecte=false
         }
-        scanner.next()
     }while(!inputCorrecte)
     return inputUsuari
 }

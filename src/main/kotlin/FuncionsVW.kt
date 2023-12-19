@@ -1,3 +1,5 @@
+import kotlin.math.round
+
 //conte les funcions
 /*
 - calcularPreuBase
@@ -14,7 +16,7 @@ fun calcularPreuBase(pUserCar:Int):Int{
 fun calcularPreuFinal(pKilometres:Double, pEstatPneumatics:Long, pPreuBase:Int):Double{
     val devaluacio=calculPerdua(pKilometres,pEstatPneumatics)
     val preuFinal=pPreuBase.toDouble()-devaluacio
-    return preuFinal
+    return ((round(preuFinal*100)/100))
 }
 
 fun calculPerdua (kilometros: Double, pPneumatics:Long): Double {
@@ -24,10 +26,8 @@ fun calculPerdua (kilometros: Double, pPneumatics:Long): Double {
     }
     if (pPneumatics>=10000){
         perdua+=300
-        println("resta 300")
     }else if(pPneumatics>5000){
         perdua+=200
-        println("resta 200")
     }
     return perdua
 }

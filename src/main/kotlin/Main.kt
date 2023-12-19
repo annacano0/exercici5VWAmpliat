@@ -6,7 +6,7 @@ fun main(){
     println("Sel·leccioni una opció:\n1-Volkswagen Grand California\n2-Volkswagen Grand California Camper Full Equip")
     val cotxeUsuari=llegirInt(1, 2,messageError)
 
-    println("Introdueixi els kilometres del vehicle")
+    println("Introdueixi els kilometres del vehicle (Ex: 0,00)")
     val kilometresCotxe=llegirDouble(0, messageError)
 
     //pregunta l'estat dels pneumatics
@@ -17,5 +17,5 @@ fun main(){
     val preuBase=calcularPreuBase(cotxeUsuari)
     val preuFinal=calcularPreuFinal(kilometresCotxe,estatPneumatics,preuBase)
 
-    print("El preu final es:"+preuFinal)
+    print("El preu final es: "+preuFinal+"€")
 }
