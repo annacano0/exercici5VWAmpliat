@@ -69,3 +69,24 @@ fun llegirDouble(pMin:Int,pMessError:String):Double{
     }while(!inputCorrecte)
     return inputUsuari
 }
+
+fun llegirStringYesNo(pMessError: String):String{
+    val scanner=Scanner(System.`in`)
+    var inputCorrecte:Boolean=true
+    var inputUsuari=""
+    do {
+        if (scanner.hasNextLine()){
+            inputCorrecte=true
+            inputUsuari=scanner.nextLine().lowercase()
+            if (inputUsuari!="si"&&inputUsuari!="no"){
+                println(pMessError)
+                inputCorrecte=false
+            }
+        }else{
+            scanner.nextLine()
+            println(pMessError)
+            inputCorrecte=false
+        }
+    }while(!inputCorrecte)
+    return inputUsuari
+}

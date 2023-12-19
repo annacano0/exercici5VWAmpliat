@@ -13,9 +13,15 @@ fun main(){
     println("Introdueixi quants kilometres tenen els pneumatics (Ex: 0)")
     val estatPneumatics=llegirLong(0,messageError)
 
+    println("Te portabicis? (Si/No)")
+    val portabicis=tePortabicis(messageError)
+
+    println("Quants anys te el vehicle?")
+    val anysVehicle=llegirInt(0,100,messageError)
+
     //calcula el preu inicial segons model
     val preuBase=calcularPreuBase(cotxeUsuari)
-    val preuFinal=calcularPreuFinal(kilometresCotxe,estatPneumatics,preuBase)
+    val preuFinal=calcularPreuFinal(kilometresCotxe,estatPneumatics,preuBase,portabicis, anysVehicle)
 
     print("El preu final es: "+preuFinal+"€")
 }
