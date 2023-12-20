@@ -1,15 +1,9 @@
 import java.util.*
 
-//conte les funcions:
-/*
--llegirInt
--llegirLong
--llegirDouble
-
-
-*/
-val scanner=Scanner(System.`in`)
-fun llegirInt(pMin:Int,pMax:Int, pMessError:String):Int{
+fun missatgeError(){
+    println(RED_BOLD+"Valor incorrecte, torni a intentar"+RESET)
+}
+fun llegirInt(pMin:Int,pMax:Int):Int{
     val scanner= Scanner(System.`in`)
     var inputCorrecte=true
     var inputUsuari=0
@@ -18,11 +12,11 @@ fun llegirInt(pMin:Int,pMax:Int, pMessError:String):Int{
             inputCorrecte=true
             inputUsuari=scanner.nextInt()
             if (inputUsuari<pMin||inputUsuari>pMax) {
-                println(pMessError)
+                missatgeError()
                 inputCorrecte=false
             }
         }else{
-            println(pMessError)
+            missatgeError()
             inputCorrecte=false
         }
         scanner.nextLine()
@@ -30,7 +24,7 @@ fun llegirInt(pMin:Int,pMax:Int, pMessError:String):Int{
     return inputUsuari
 }
 
-fun llegirLong(pMin:Int,pMessError:String):Long{
+fun llegirLong(pMin:Int):Long{
     val scanner= Scanner(System.`in`)
     var inputCorrecte:Boolean
     var inputUsuari:Long=100
@@ -38,18 +32,20 @@ fun llegirLong(pMin:Int,pMessError:String):Long{
         if (scanner.hasNextLong()){
             inputCorrecte=true
             inputUsuari=scanner.nextLong()
-            if (inputUsuari<=pMin) inputCorrecte=false
+            if (inputUsuari<=pMin){
+                missatgeError()
+                inputCorrecte=false
+            }
         }else{
-            println(pMessError)
+            missatgeError()
             inputCorrecte=false
             scanner.nextLine()
         }
-        scanner.nextLine()
     }while(!inputCorrecte)
     return inputUsuari
 }
 
-fun llegirDouble(pMin:Int,pMessError:String):Double{
+fun llegirDouble(pMin:Int):Double{
     val scanner= Scanner(System.`in`)
     var inputCorrecte:Boolean=true
     var inputUsuari:Double=100.00
@@ -59,18 +55,18 @@ fun llegirDouble(pMin:Int,pMessError:String):Double{
             inputUsuari=scanner.nextDouble()
             if (inputUsuari<pMin){
                 inputCorrecte=false
-                println(pMessError)
+                missatgeError()
             }
         }else{
             scanner.nextLine()
-            println(pMessError)
+            missatgeError()
             inputCorrecte=false
         }
     }while(!inputCorrecte)
     return inputUsuari
 }
 
-fun llegirStringYesNo(pMessError: String):String{
+fun llegirStringYesNo():String{
     val scanner=Scanner(System.`in`)
     var inputCorrecte:Boolean=true
     var inputUsuari=""
@@ -79,12 +75,12 @@ fun llegirStringYesNo(pMessError: String):String{
             inputCorrecte=true
             inputUsuari=scanner.nextLine().lowercase()
             if (inputUsuari!="si"&&inputUsuari!="no"){
-                println(pMessError)
+                missatgeError()
                 inputCorrecte=false
             }
         }else{
             scanner.nextLine()
-            println(pMessError)
+            missatgeError()
             inputCorrecte=false
         }
     }while(!inputCorrecte)
