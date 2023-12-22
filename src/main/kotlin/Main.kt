@@ -50,6 +50,5 @@ fun main(){
            "Tipus de dada incorrecte, torni a intentar",
            "El valor no és si/no, torni a intentar")
    }while (repetirPrograma=="si")
-   //when exiting program, the goodbye message is printed
-   missatgeAdeu()
+   missatgeAdeu()//when exiting program, the goodbye message is printed
 }
