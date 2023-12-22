@@ -304,39 +304,67 @@ fun readLong(pMessageIn: String
     var inputCorrecte:Boolean
     var inputUsuari:Long=100
     do {
+        println(pMessageIn)
         if (scan.hasNextLong()){
             inputCorrecte=true
             inputUsuari=scan.nextLong()
             if (inputUsuari<=pMin){
-                println(RED_BACKGROUND_BRIGHT + "ERROR: " + pMessageErrorDT + RESET)
+                println(YELLOW_BOLD_BRIGHT + "WARNING: " + pMessageErrorDV + RESET)
                 inputCorrecte=false
             }
         }else{
-            println(YELLOW_BOLD_BRIGHT + "WARNING: " + pMessageErrorDV + RESET)
+            println(RED_BACKGROUND_BRIGHT + "ERROR: " + pMessageErrorDT + RESET)
             inputCorrecte=false
+        }
+        scan.nextLine()
+    }while(!inputCorrecte)
+    return inputUsuari
+}
+
+fun readDouble(pMessageIn: String
+               , pMessageErrorDT: String
+               , pMessageErrorDV: String
+               , pMin: Double
+):Double{
+
+    var inputCorrecte:Boolean=true
+    var inputUsuari:Double=100.00
+    do {
+        println(pMessageIn)
+        if (scan.hasNextDouble()){
+            inputCorrecte=true
+            inputUsuari=scan.nextDouble()
+            if (inputUsuari<pMin){
+                inputCorrecte=false
+                println(YELLOW_BOLD_BRIGHT + "WARNING: " + pMessageErrorDV + RESET)
+            }
+        }else{
             scan.nextLine()
+            println(RED_BACKGROUND_BRIGHT + "ERROR: " + pMessageErrorDT + RESET)
+            inputCorrecte=false
         }
     }while(!inputCorrecte)
     return inputUsuari
 }
 
-fun readStringYesNo(pMessageErrorDT: String
+fun readStringYesNo(pMessageIn:String, pMessageErrorDT: String
                     , pMessageErrorDV: String
 ):String{
 
     var inputCorrecte:Boolean=true
     var inputUsuari=""
     do {
+        println(pMessageIn)
         if (scan.hasNextLine()){
             inputCorrecte=true
             inputUsuari=scan.nextLine().lowercase()
             if (inputUsuari!="si"&&inputUsuari!="no"){
-                println(RED_BACKGROUND_BRIGHT + "ERROR: " + pMessageErrorDT + RESET)
+                println(YELLOW_BOLD_BRIGHT + "WARNING: " + pMessageErrorDV + RESET)
                 inputCorrecte=false
             }
         }else{
             scan.nextLine()
-            println(YELLOW_BOLD_BRIGHT + "WARNING: " + pMessageErrorDV + RESET)
+            println(RED_BACKGROUND_BRIGHT + "ERROR: " + pMessageErrorDT + RESET)
             inputCorrecte=false
         }
     }while(!inputCorrecte)

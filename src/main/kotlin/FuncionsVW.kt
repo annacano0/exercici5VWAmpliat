@@ -9,7 +9,7 @@ fun calcularPreuBase(pUserCar:Int):Int{
 }
 fun tePortabicis(pMessageIn:String):Boolean{
     var tePortabicis=false
-    val inputUsuari=readStringYesNo("El tipus de dada introduit no es correcte, torni a provar", "El valor no es si/no, torni a provar")
+    val inputUsuari=readStringYesNo(pMessageIn,"El tipus de dada introduit no es correcte, torni a provar", "El valor no es si/no, torni a provar")
     if (inputUsuari=="si") tePortabicis=true
     return tePortabicis
 }
