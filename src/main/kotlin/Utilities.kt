@@ -318,7 +318,7 @@ fun readLong(pMessageIn: String
         if (scan.hasNextLong()){
             inputCorrecte=true
             inputUsuari=scan.nextLong()
-            if (inputUsuari<=pMin){
+            if (inputUsuari<pMin){
                 println(YELLOW_BOLD_BRIGHT + "WARNING: " + pMessageErrorDV + RESET)
                 inputCorrecte=false
             }
