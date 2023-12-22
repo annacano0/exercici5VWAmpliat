@@ -295,3 +295,50 @@ fun readFloat(pMessageIn: String
 
     return outputValue
 }
+
+fun readLong(pMessageIn: String
+             , pMessageErrorDT: String
+             , pMessageErrorDV: String
+             ,pMin:Int
+):Long{
+    var inputCorrecte:Boolean
+    var inputUsuari:Long=100
+    do {
+        if (scan.hasNextLong()){
+            inputCorrecte=true
+            inputUsuari=scan.nextLong()
+            if (inputUsuari<=pMin){
+                println(RED_BACKGROUND_BRIGHT + "ERROR: " + pMessageErrorDT + RESET)
+                inputCorrecte=false
+            }
+        }else{
+            println(YELLOW_BOLD_BRIGHT + "WARNING: " + pMessageErrorDV + RESET)
+            inputCorrecte=false
+            scan.nextLine()
+        }
+    }while(!inputCorrecte)
+    return inputUsuari
+}
+
+fun readStringYesNo(pMessageErrorDT: String
+                    , pMessageErrorDV: String
+):String{
+
+    var inputCorrecte:Boolean=true
+    var inputUsuari=""
+    do {
+        if (scan.hasNextLine()){
+            inputCorrecte=true
+            inputUsuari=scan.nextLine().lowercase()
+            if (inputUsuari!="si"&&inputUsuari!="no"){
+                println(RED_BACKGROUND_BRIGHT + "ERROR: " + pMessageErrorDT + RESET)
+                inputCorrecte=false
+            }
+        }else{
+            scan.nextLine()
+            println(YELLOW_BOLD_BRIGHT + "WARNING: " + pMessageErrorDV + RESET)
+            inputCorrecte=false
+        }
+    }while(!inputCorrecte)
+    return inputUsuari
+}

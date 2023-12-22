@@ -1,26 +1,4 @@
-fun main(){
-    missatgeBenvolguda()
 
-    println(BLACK_BOLD+"Sel·leccioni una opció:"+RESET+"\n1-Volkswagen Grand California\n2-Volkswagen Grand California Camper Full Equip")
-    val cotxeUsuari=llegirInt(1, 2)
-
-    println("Introdueixi els kilometres del vehicle (Ex: 0,00)")
-    val kilometresCotxe=llegirDouble(0)
-
-    println("Introdueixi quants kilometres tenen els pneumatics (Ex: 0)")
-    val estatPneumatics=llegirLong(0)
-
-    println("Te portabicis? (Si/No)")
-    val portabicis=tePortabicis()
-
-    println("Quants anys te el vehicle?")
-    val anysVehicle=llegirInt(0,100)
-
-    val preuBase=calcularPreuBase(cotxeUsuari)
-    val preuFinal=calcularPreuFinal(kilometresCotxe,estatPneumatics,preuBase,portabicis, anysVehicle)
-
-    missatgePreuFinal(preuFinal)
-}
 fun missatgeBenvolguda(){
     asciiArt()
     println(PURPLE_BOLD_BRIGHT+"-----------------------------------")
@@ -35,4 +13,33 @@ fun missatgePreuFinal(pPreuFinal:Double){
     println("-----------------------------------\n" +
             "            "+pPreuFinal+"€        \n" +
             "-----------------------------------"+RESET)
+}
+
+fun execucioPrograma():Double{
+    val cotxeUsuari=readInt("Sel·leccioni una opció:\n1-Volkswagen Grand California\\n2-Volkswagen Grand California Camper Full Equip",
+        "Tipus de dada incorrecte, torni a intentar", "El valor inserit no es una opcio, torni a intentar",
+        1, 2)
+
+    val kilometresCotxe=readDouble("Introdueixi els quilometres del vehicle (Ex: 0,00)",
+        "Tipus de dada incorrecte, torni a intentar", "El valor inserit no es una opcio, torni a intentar",
+        0.00, )
+
+    val estatPneumatics=readLong("Introdueixi quants kilometres tenen els pneumatics (Ex: 0)",
+        "Tipus de dada incorrecte, torni a intentar", "El valor inserit no es una opcio, torni a intentar",
+        0)
+
+    val portabicis=tePortabicis("Te portabicis? (Si/No)")
+
+    val anysVehicle=readInt("Quants anys te el vehicle?",
+        "Tipus de dada incorrecte, torni a intentar", "El valor inserit no es una opcio, torni a intentar",0,100)
+
+    val preuBase=calcularPreuBase(cotxeUsuari)
+    val preuFinal=calcularPreuFinal(kilometresCotxe,estatPneumatics,preuBase,portabicis, anysVehicle)
+
+    return preuFinal
+}
+
+fun main(){
+    missatgeBenvolguda()
+    missatgePreuFinal(execucioPrograma())
 }

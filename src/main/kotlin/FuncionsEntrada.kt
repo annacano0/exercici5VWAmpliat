@@ -24,28 +24,11 @@ fun llegirInt(pMin:Int,pMax:Int):Int{
     return inputUsuari
 }
 
-fun llegirLong(pMin:Int):Long{
-    val scanner= Scanner(System.`in`)
-    var inputCorrecte:Boolean
-    var inputUsuari:Long=100
-    do {
-        if (scanner.hasNextLong()){
-            inputCorrecte=true
-            inputUsuari=scanner.nextLong()
-            if (inputUsuari<=pMin){
-                missatgeError()
-                inputCorrecte=false
-            }
-        }else{
-            missatgeError()
-            inputCorrecte=false
-            scanner.nextLine()
-        }
-    }while(!inputCorrecte)
-    return inputUsuari
-}
-
-fun llegirDouble(pMin:Int):Double{
+fun readDouble(pMessageIn: String
+               , pMessageErrorDT: String
+               , pMessageErrorDV: String
+               , pMin: Double
+):Double{
     val scanner= Scanner(System.`in`)
     var inputCorrecte:Boolean=true
     var inputUsuari:Double=100.00
@@ -55,34 +38,14 @@ fun llegirDouble(pMin:Int):Double{
             inputUsuari=scanner.nextDouble()
             if (inputUsuari<pMin){
                 inputCorrecte=false
-                missatgeError()
+                println(YELLOW_BOLD_BRIGHT + "WARNING: " + pMessageErrorDV + RESET)
             }
         }else{
             scanner.nextLine()
-            missatgeError()
+            println(RED_BACKGROUND_BRIGHT + "ERROR: " + pMessageErrorDT + RESET)
             inputCorrecte=false
         }
     }while(!inputCorrecte)
     return inputUsuari
 }
 
-fun llegirStringYesNo():String{
-    val scanner=Scanner(System.`in`)
-    var inputCorrecte:Boolean=true
-    var inputUsuari=""
-    do {
-        if (scanner.hasNextLine()){
-            inputCorrecte=true
-            inputUsuari=scanner.nextLine().lowercase()
-            if (inputUsuari!="si"&&inputUsuari!="no"){
-                missatgeError()
-                inputCorrecte=false
-            }
-        }else{
-            scanner.nextLine()
-            missatgeError()
-            inputCorrecte=false
-        }
-    }while(!inputCorrecte)
-    return inputUsuari
-}

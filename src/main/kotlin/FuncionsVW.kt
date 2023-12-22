@@ -7,9 +7,9 @@ fun calcularPreuBase(pUserCar:Int):Int{
     }
     return preu
 }
-fun tePortabicis():Boolean{
+fun tePortabicis(pMessageIn:String):Boolean{
     var tePortabicis=false
-    val inputUsuari=llegirStringYesNo()
+    val inputUsuari=readStringYesNo("El tipus de dada introduit no es correcte, torni a provar", "El valor no es si/no, torni a provar")
     if (inputUsuari=="si") tePortabicis=true
     return tePortabicis
 }
