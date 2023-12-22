@@ -296,6 +296,16 @@ fun readFloat(pMessageIn: String
     return outputValue
 }
 
+/**
+ * This method can be used to read a Long value from the user through keyboard using java.util.Scanner in within a range
+ * @author annacano0
+ * @since 22/12/2023
+ * @param pMessageIn Input message to be shown to the user
+ * @param pMessageErrorDT Data type error message to be shown to the user
+ * @param pMessageErrorDV Data value error message to be shown to the user
+ * @param pMin Min accepted value
+ * @return inputUsuari Output value
+ */
 fun readLong(pMessageIn: String
              , pMessageErrorDT: String
              , pMessageErrorDV: String
@@ -320,6 +330,17 @@ fun readLong(pMessageIn: String
     }while(!inputCorrecte)
     return inputUsuari
 }
+
+/**
+ * This method can be used to read a Double value from the user through keyboard using java.util.Scanner in within a range
+ * @author annacano0
+ * @since 22/12/2023
+ * @param pMessageIn Input message to be shown to the user
+ * @param pMessageErrorDT Data type error message to be shown to the user
+ * @param pMessageErrorDV Data value error message to be shown to the user
+ * @param pMin Min accepted value
+ * @return inputUsuari Output value
+ */
 
 fun readDouble(pMessageIn: String
                , pMessageErrorDT: String
@@ -347,6 +368,17 @@ fun readDouble(pMessageIn: String
     return inputUsuari
 }
 
+/**
+ * This method can be used to read a Si/No string value from the user through keyboard using java.util.Scanner in within a range
+ * @author annacano0
+ * @since 22/12/2023
+ * @param pMessageIn Input message to be shown to the user
+ * @param pMessageErrorDT Data type error message to be shown to the user
+ * @param pMessageErrorDV Data value error message to be shown to the user
+ * @param pMin Min accepted value
+ * @param pMax Max accepted value
+ * @return outputValue Output value
+ */
 fun readStringYesNo(pMessageIn:String, pMessageErrorDT: String
                     , pMessageErrorDV: String
 ):String{
